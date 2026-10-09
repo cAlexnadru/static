@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Alexandru-Tudor Chiujdea — UX/UI & Visual Designer</title>
+  <meta name="description" content="Portfolio of Alexandru-Tudor Chiujdea — UX/UI & Visual Designer building scalable enterprise systems and interfaces. Specializing in OOUX, Lean UX, and accessible design.">
+  <meta name="author" content="Alexandru-Tudor Chiujdea">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href=""><!-- TODO: Set your domain here, e.g. https://chiujdea.com -->
+
+  <!-- Open Graph (Social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Alexandru-Tudor Chiujdea — UX/UI & Visual Designer">
+  <meta property="og:description" content="UX/UI & Visual Designer building scalable enterprise systems and interfaces.">
+  <meta property="og:image" content="assets/images/og-image.png"><!-- TODO: Add a 1200x630 social preview image -->
+  <meta property="og:url" content=""><!-- TODO: Set your domain -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alexandru-Tudor Chiujdea — UX/UI & Visual Designer">
+  <meta name="twitter:description" content="UX/UI & Visual Designer building scalable enterprise systems and interfaces.">
+
+  <!-- Favicon — TODO: Replace with your actual favicon files -->
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Theme: prevent FOUC (flash of unstyled content) -->
+  <script>
+    (function() {
+      var storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ================================================================
+         HOME VIEW
+         ================================================================ -->
+    <div id="home-view">
+      <nav class="top-nav">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light mode">
+          <svg class="icon-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </nav>
+
+      <header class="profile-header fade-in-section visible">
+        <div class="avatar-wrapper">
+          <img src="https://i.postimg.cc/5yd4jVDQ/1awt-(2-of-61).jpg" alt="Alexandru-Tudor Chiujdea portrait" width="96" height="96" loading="eager">
+        </div>
+        <h1>Alexandru-Tudor Chiujdea</h1>
+        <p class="tagline">UX/UI & Visual Designer building scalable enterprise systems and interfaces.</p>
+        <div class="link-row">
+          <a href="mailto:alextudorchiujdea@gmail.com" class="btn primary">Email Me</a>
+          <a href="assets/docs/Alexandru_Chiujdea_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn">My Resume</a>
+          <a href="https://www.linkedin.com/in/alexandru-tudor-chiujdea/" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
+          <a href="https://www.behance.net/dudthyawesome" target="_blank" rel="noopener noreferrer" class="btn">Behance</a>
+          <a href="https://ixdf.org/members/alexandru-chiujdea?r=alexandru-chiujdea" target="_blank" rel="noopener noreferrer" class="btn">IxDF</a>
+        </div>
+      </header>
+
+      <!-- Projects Section -->
+      <section id="projects" class="fade-in-section wrapper-section">
+        <button class="section-header" aria-expanded="true" aria-controls="content-projects" onclick="toggleSection(this)">
+          <h2 class="section-title">Projects</h2>
+          <svg class="chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div id="content-projects" class="section-content">
+          <h3 class="subsection-title">Concepts (Personal Work)</h3>
+          <div class="list-container" id="concepts-list">
+            <!-- Rendered dynamically from js/projects.js -->
+          </div>
+
+          <h3 class="subsection-title">Use Cases (NDA Sanitized)</h3>
+          <div class="list-container" id="usecases-list">
+            <!-- Rendered dynamically from js/projects.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="fade-in-section wrapper-section">
+        <button class="section-header" aria-expanded="true" aria-controls="content-about" onclick="toggleSection(this)">
+          <h2 class="section-title">About</h2>
+          <svg class="chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div id="content-about" class="section-content">
+          <p class="about-text">
+            I am an innovative UX/UI Designer with over 6 years of experience leading user-centered design across smart infrastructure, healthcare, fintech, and logistics.
+            Specializing in <strong>Object-Oriented UX (OOUX)</strong> and <strong>Lean UX</strong>, I bridge the gap between design and development by building scalable design systems that align precisely with user mental models and backend architecture.
+            <br><br>
+            Certified in AI design and accessibility, my goal is to craft ethical, inclusive, and highly efficient interfaces that drive business profitability and automate complex workflows.
+          </p>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="fade-in-section wrapper-section">
+        <button class="section-header" aria-expanded="true" aria-controls="content-experience" onclick="toggleSection(this)">
+          <h2 class="section-title">Experience</h2>
+          <svg class="chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div id="content-experience" class="section-content">
+          <div class="list-container">
+            <div class="list-item">
+              <div class="item-left">
+                <span class="item-title">Nagarro</span>
+                <span class="item-desc">User Experience & Interface Designer — Lead complex enterprise suites and AI workflows.</span>
+              </div>
+              <span class="item-meta">2022 — Current</span>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <span class="item-title">Telios Care S.A.</span>
+                <span class="item-desc">UI & Visual Designer — Scaled a multi-portal telemedicine design system.</span>
+              </div>
+              <span class="item-meta">2020 — 2022</span>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <span class="item-title">Simbound</span>
+                <span class="item-desc">Visual Designer — Shaped brand identity and e-learning graphics.</span>
+              </div>
+              <span class="item-meta">2019 — 2019</span>
+            </div>
+            <div class="list-item">
+              <div class="item-left">
+                <span class="item-title">Freelance Visual Designer & 3D Artist</span>
+                <span class="item-desc">Developed UI and 3D assets for emerging brands.</span>
+              </div>
+              <span class="item-meta">2017 — 2019</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="fade-in-section main-footer">
+        <div class="link-row">
+          <a href="mailto:alextudorchiujdea@gmail.com" class="btn primary">Email</a>
+          <a href="assets/docs/Alexandru_Chiujdea_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn">My Resume</a>
+          <a href="https://www.linkedin.com/in/alexandru-tudor-chiujdea/" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
+          <a href="https://www.behance.net/dudthyawesome" target="_blank" rel="noopener noreferrer" class="btn">Behance</a>
+        </div>
+        <div class="footer-meta">
+          <p class="footer-location">Cluj-Napoca, Romania · Open to Remote (EU) & Relocation (Rome)</p>
+          <p class="footer-contact">Alexandru Chiujdea — <a href="mailto:alextudorchiujdea@gmail.com" class="footer-email-link">alextudorchiujdea@gmail.com</a></p>
+          <p class="footer-status">Open to Staff/Lead Roles</p>
+          <p class="footer-note">Designed with systematic restraint · Built with semantic HTML/CSS · 2026</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ================================================================
+         PROJECT DETAIL VIEW
+         ================================================================ -->
+    <div id="project-view" aria-live="polite">
+      <nav class="sticky-nav">
+        <button class="back-btn" onclick="closeProject()" aria-label="Go back to home page">
+          <svg width="18" height="18" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span style="display:none;" id="desktop-back-text">Projects /</span>
+        </button>
+        <span class="breadcrumb-title" id="breadcrumb-title" tabindex="-1">Project Name</span>
+      </nav>
+
+      <div class="project-body" id="project-body-content">
+        <!-- Injected dynamically -->
+      </div>
+
+      <div class="project-nav-footer">
+        <button class="nav-btn prev" id="nav-prev" onclick="navigateProject(-1)">
+          <span class="nav-label" aria-hidden="true">&larr; Prev</span>
+          <span class="nav-title" id="nav-prev-title">Previous Project</span>
+        </button>
+        <button class="nav-btn next" id="nav-next" onclick="navigateProject(1)">
+          <span class="nav-label" aria-hidden="true">Next &rarr;</span>
+          <span class="nav-title" id="nav-next-title">Next Project</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div id="image-modal" class="image-modal" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
+    <div class="image-modal-backdrop" id="modal-backdrop"></div>
+    <div class="image-modal-content">
+      <button class="image-modal-close" id="modal-close" aria-label="Close image preview">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="image-modal-toolbar">
+        <button class="modal-tool-btn" id="modal-zoom-out" aria-label="Zoom out">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <span class="modal-zoom-level" id="modal-zoom-level">100%</span>
+        <button class="modal-tool-btn" id="modal-zoom-in" aria-label="Zoom in">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <button class="modal-tool-btn" id="modal-zoom-reset" aria-label="Reset zoom">Reset</button>
+      </div>
+      <div class="image-modal-stage" id="modal-stage">
+        <img id="modal-image" src="" alt="" draggable="false">
+      </div>
+      <p id="modal-caption" class="image-modal-caption"></p>
+    </div>
+  </div>
+
+  <!-- Scripts: data first, then app logic -->
+  <script src="js/projects.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
