@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mello — Soft thoughts, clear steps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-sans/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0,0" />
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Geist', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ==========================================================================
+           MELLO — ULTRA-CLEAN FRAGRANCE-HOUSE DESIGN SYSTEM
+           Restrained Palette: 85% Alabaster/Mist Neutrals, 10% Sage, 5% Blush
+           WCAG 2.2 AAA High-Contrast Ink + Whisper-Soft Pastel Gradients
+           ========================================================================== */
+        :root {
+            --bg-outer: #EEF2EF;
+            --bg-canvas: #FAFBF9;
+            --bg-gradient: linear-gradient(165deg, #FAFBF9 0%, #F2F8F4 52%, #FDF5F7 100%);
+            --hero-gradient: radial-gradient(circle at 50% 0%, #E6F4EC 0%, #FCEEF3 55%, #FAFBF9 100%);
+            --bg-surface: rgba(255, 255, 255, 0.92);
+            --bg-subtle: #F1F5F2;
+            --border-subtle: #DCE5DF;
+            --border-strong: #63736A;
+
+            --text-primary: #121C17;      /* 16.2:1 AAA */
+            --text-secondary: #394A40;    /* 9.1:1 AAA */
+            --text-muted: #4E6157;        /* 7.0:1 AAA */
+
+            /* Primary Accent: Botanical Sage */
+            --primary-fill: #134E32;      /* 9.6:1 with White (AAA) */
+            --primary-hover: #0C3823;
+            --primary-text: #FFFFFF;
+            --sage-soft: #E3F5EB;
+            --sage-ink: #082E1B;
+
+            /* Secondary Accent: Cloud Blush (Used sparingly for Pro & AI Magic) */
+            --blush-soft: #FCE8EF;
+            --blush-border: #E5B8C8;
+            --blush-ink: #4A1026;
+
+            /* Soft Tag Tones (Restrained 3-Tone System) */
+            --tag-sage-bg: #E3F5EB;  --tag-sage-text: #082E1B;  --tag-sage-border: #99D1B1;
+            --tag-blush-bg: #FCE8EF; --tag-blush-text: #4A1026; --tag-blush-border: #E5B8C8;
+            --tag-mist-bg: #E8F1F8;  --tag-mist-text: #0D2B3E;  --tag-mist-border: #A7C7DE;
+
+            --focus-ring: #134E32;
+        }
+
+        html.dark {
+            --bg-outer: #070B09;
+            --bg-canvas: #0E1512;
+            --bg-gradient: linear-gradient(165deg, #0E1512 0%, #111D18 55%, #1A1419 100%);
+            --hero-gradient: radial-gradient(circle at 50% 0%, #142E22 0%, #261620 55%, #0E1512 100%);
+            --bg-surface: rgba(22, 33, 28, 0.94);
+            --bg-subtle: #1B2822;
+            --border-subtle: #283A31;
+            --border-strong: #879E92;
+
+            --text-primary: #EEF5F0;      /* 16.0:1 AAA */
+            --text-secondary: #C4D6CC;    /* 10.5:1 AAA */
+            --text-muted: #A2B8AC;        /* 7.4:1 AAA */
+
+            --primary-fill: #8CE8B5;      /* 11.4:1 with #062916 */
+            --primary-hover: #A6F0C6;
+            --primary-text: #062916;
+            --sage-soft: #123825;
+            --sage-ink: #D8F6E5;
+
+            --blush-soft: #3D1526;
+            --blush-border: #873B5B;
+            --blush-ink: #FCE8EF;
+
+            --tag-sage-bg: #123825;  --tag-sage-text: #D8F6E5;  --tag-sage-border: #387B57;
+            --tag-blush-bg: #3D1526; --tag-blush-text: #FCE8EF; --tag-blush-border: #873B5B;
+            --tag-mist-bg: #112E40;  --tag-mist-text: #E3F2FD;  --tag-mist-border: #3B6F91;
+
+            --focus-ring: #8CE8B5;
+        }
+
+        body {
+            background-color: var(--bg-outer);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .font-heading {
+            font-family: 'Geist', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .mello-shell {
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+        }
+
+        .mello-hero-bg {
+            background: var(--hero-gradient);
+        }
+
+        .mello-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            backdrop-filter: blur(12px);
+        }
+
+        .mello-subtle {
+            background-color: var(--bg-subtle);
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* CRITICAL: Single-Line Button Rule & 44x44px Touch Targets */
+        button {
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            min-height: 44px;
+            min-width: 44px;
+            font-family: 'Geist', sans-serif;
+            touch-action: manipulation;
+        }
+
+        button > span:not(.material-symbols-outlined) {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        *:focus-visible {
+            outline: 3px solid var(--focus-ring) !important;
+            outline-offset: 2px !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-fill);
+            color: var(--primary-text);
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-blush {
+            background-color: var(--blush-soft);
+            color: var(--blush-ink);
+            border: 1px solid var(--blush-border);
+        }
+
+        .pill-sage {
+            background-color: var(--sage-soft);
+            color: var(--sage-ink);
+        }
+
+        .tag-sage  { background-color: var(--tag-sage-bg);  color: var(--tag-sage-text);  border: 1px solid var(--tag-sage-border); }
+        .tag-blush { background-color: var(--tag-blush-bg); color: var(--tag-blush-text); border: 1px solid var(--tag-blush-border); }
+        .tag-mist  { background-color: var(--tag-mist-bg);  color: var(--tag-mist-text);  border: 1px solid var(--tag-mist-border); }
+
+        .material-symbols-outlined {
+            font-size: 18px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        [contenteditable="true"] {
+            border-radius: 6px;
+            padding: 2px 6px;
+            margin: -2px -6px;
+            transition: background-color 0.15s ease;
+        }
+        [contenteditable="true"]:focus {
+            background-color: var(--bg-subtle);
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-start md:py-6">
+
+    <!-- Polite Screen-Reader Live Region -->
+    <div id="aria-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- MOBILE SHELL (Max 420px, Airy 24px Rhythm) -->
+    <div class="w-full max-w-[420px] min-h-screen md:min-h-[840px] md:max-h-[900px] mello-shell md:rounded-[38px] md:shadow-2xl md:border-[6px] md:border-white/80 dark:md:border-neutral-800 flex flex-col justify-between overflow-hidden relative">
+
+        <!-- =========================================================
+             SCREEN 1: BRANDED WELCOME & PRO LOGIN GATE
+             ========================================================= -->
+        <section id="screen-welcome" aria-labelledby="welcome-brand-title" class="flex-1 mello-hero-bg px-6 py-10 flex flex-col justify-between z-30">
+            <!-- Top Row: Minimal Theme Switch -->
+            <div class="flex justify-end">
+                <button id="welcome-theme-btn"
+                    type="button"
+                    role="switch"
+                    aria-checked="false"
+                    aria-label="Toggle Dark Mode"
+                    class="min-h-[44px] px-3.5 rounded-full mello-card text-xs font-medium flex items-center gap-1.5">
+                    <span id="welcome-theme-icon" class="material-symbols-outlined">wb_sunny</span>
+                    <span id="welcome-theme-label">Light</span>
+                </button>
+            </div>
+
+            <!-- Center Brand Identity: Logo, Full Name & Fragrance-Inspired Tagline -->
+            <div class="flex flex-col items-center text-center my-auto py-6">
+                <!-- Mello Cloud-Pebble SVG Mark -->
+                <div class="w-20 h-20 rounded-[28px] mello-card shadow-sm flex items-center justify-center mb-5" aria-hidden="true">
+                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="24" r="12" fill="#99D1B1" fill-opacity="0.55"/>
+                        <circle cx="27" cy="20" r="11" fill="#E5B8C8" fill-opacity="0.65"/>
+                        <path d="M14 25C14 20.5817 17.5817 17 22 17H26C29.866 17 33 20.134 33 24C33 27.866 29.866 31 26 31H17C15.3431 31 14 29.6569 14 28V25Z" fill="#134E32"/>
+                    </svg>
+                </div>
+
+                <h1 id="welcome-brand-title" class="text-4xl font-heading font-bold tracking-tight">
+                    Mello
+                </h1>
+                <p class="text-sm text-[var(--text-secondary)] mt-2 max-w-[240px] leading-relaxed">
+                    Soft thoughts, clear steps.
+                </p>
+                <span class="mt-3 text-[11px] font-medium px-3 py-1 rounded-full pill-sage">
+                    Cotton • Morning Mist • Calm Focus
+                </span>
+            </div>
+
+            <!-- Login / Pro Activation Card -->
+            <div class="mello-card p-6 rounded-[28px] shadow-sm flex flex-col gap-3.5">
+                <div class="flex items-center justify-between">
+                    <label for="welcome-email-input" class="text-xs font-semibold">
+                        Enter any email to unlock <span class="underline">Mello Pro</span>
+                    </label>
+                    <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full tag-blush">Free Preview</span>
+                </div>
+
+                <input id="welcome-email-input"
+                    type="email"
+                    placeholder="you@mello.app"
+                    class="w-full min-h-[44px] px-4 rounded-2xl mello-subtle text-sm placeholder:text-[var(--text-muted)]" />
+
+                <button id="welcome-pro-btn"
+                    type="button"
+                    class="w-full min-h-[48px] px-4 rounded-2xl btn-primary text-sm font-semibold flex items-center justify-center gap-2 shadow-xs">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                    <span>Continue with Pro</span>
+                </button>
+
+                <div class="relative flex py-1 items-center">
+                    <div class="flex-grow border-t border-[var(--border-subtle)]"></div>
+                    <span class="flex-shrink mx-3 text-[11px] text-[var(--text-muted)]">or</span>
+                    <div class="flex-grow border-t border-[var(--border-subtle)]"></div>
+                </div>
+
+                <button id="welcome-guest-btn"
+                    type="button"
+                    class="w-full min-h-[44px] px-4 rounded-2xl mello-subtle text-xs font-semibold flex items-center justify-center gap-1.5 hover:opacity-85">
+                    <span>Use without login (Free)</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SCREEN 2 & 3: MAIN APP HEADER (FULL BRAND NAME ALWAYS SHOWN)
+             ========================================================= -->
+        <header id="app-header" role="banner" class="hidden px-5 pt-4 pb-3 border-b border-[var(--border-subtle)] items-center justify-between gap-2 sticky top-0 z-20 backdrop-blur-md">
+            <!-- Brand Title: Full Name "Mello" + Tier Pill -->
+            <div class="flex items-center gap-2.5">
+                <button id="brand-home-btn" type="button" aria-label="Back to Mello Welcome Screen" class="min-h-[44px] px-2 -ml-2 rounded-2xl flex items-center gap-2 hover:opacity-80">
+                    <span class="w-8 h-8 rounded-xl pill-sage flex items-center justify-center font-heading font-bold text-sm">M</span>
+                    <span class="text-xl font-heading font-bold tracking-tight">Mello</span>
+                </button>
+                <span id="plan-badge" class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full pill-sage">
+                    Free
+                </span>
+            </div>
+
+            <!-- Right Controls: Only Dark Mode Switch -->
+            <button id="header-theme-btn"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Toggle Dark Mode"
+                class="min-h-[44px] px-3.5 rounded-full mello-subtle text-xs font-semibold flex items-center gap-1.5">
+                <span id="header-theme-icon" class="material-symbols-outlined">wb_sunny</span>
+                <span id="header-theme-label">Light</span>
+            </button>
+        </header>
+
+        <!-- =========================================================
+             MAIN WORKSPACE (CLEAN, UNCLUTTERED, 24PX SPACING)
+             ========================================================= -->
+        <main id="app-main" role="main" class="hidden flex-1 overflow-y-auto px-5 py-6 pb-28 flex-col gap-6 no-scrollbar">
+
+            <!-- VIEW A: FOLD THOUGHTS WORKSPACE -->
+            <div id="view-workspace" class="flex flex-col gap-6">
+
+                <!-- Input Card -->
+                <section aria-labelledby="input-label" class="mello-card p-5 rounded-[24px] shadow-2xs flex flex-col gap-3.5">
+                    <div class="flex items-center justify-between">
+                        <label id="input-label" for="thought-input" class="text-sm font-heading font-semibold">
+                            What’s on your mind?
+                        </label>
+                        <button id="sample-btn" type="button" class="min-h-[44px] px-3 -my-2 rounded-full text-xs font-medium text-[var(--text-secondary)] hover:underline">
+                            <span>Try sample</span>
+                        </button>
+                    </div>
+
+                    <textarea id="thought-input"
+                        rows="3"
+                        class="w-full p-3.5 mello-subtle rounded-2xl resize-none text-sm placeholder:text-[var(--text-muted)]"
+                        placeholder="Dump a messy thought or conversation... e.g. 'Sunday lake picnic: pack linen blanket and chill peaches. Also finish the deck for Monday.'"></textarea>
+
+                    <!-- Clean Action Buttons: Row 1 Extract, Row 2 Voice & Clear -->
+                    <button id="extract-btn"
+                        type="button"
+                        class="w-full min-h-[48px] px-4 rounded-2xl btn-primary text-sm font-semibold flex items-center justify-center gap-2 shadow-2xs">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                        <span>Fold into Steps</span>
+                    </button>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <button id="voice-btn"
+                            type="button"
+                            class="w-full min-h-[44px] px-3 rounded-2xl btn-blush text-xs font-semibold flex items-center justify-center gap-1.5">
+                            <span class="material-symbols-outlined">mic</span>
+                            <span>Voice Note</span>
+                        </button>
+                        <button id="clear-btn"
+                            type="button"
+                            class="w-full min-h-[44px] px-3 rounded-2xl mello-subtle text-xs font-semibold flex items-center justify-center gap-1.5">
+                            <span class="material-symbols-outlined">ink_eraser</span>
+                            <span>Clear</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Subtle Toast Notification -->
+                <div id="toast-banner" role="status" class="hidden px-4 py-3 rounded-2xl pill-sage text-xs font-medium flex items-center justify-between gap-2">
+                    <span id="toast-text" class="truncate"></span>
+                    <button id="toast-close" type="button" aria-label="Close message" class="min-h-[44px] min-w-[44px] -my-2 -mr-2 flex items-center justify-center">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+
+                <!-- Tasks Header + Export -->
+                <section aria-labelledby="steps-heading" class="flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <h2 id="steps-heading" class="text-base font-heading font-semibold">Clear Steps</h2>
+                        <div class="flex items-center gap-1.5">
+                            <button id="new-task-btn" type="button" class="min-h-[44px] px-3 rounded-full mello-subtle text-xs font-semibold flex items-center gap-1">
+                                <span class="material-symbols-outlined">add</span>
+                                <span>Add Task</span>
+                            </button>
+                            <button id="export-open-btn" type="button" class="min-h-[44px] px-3.5 rounded-full btn-blush text-xs font-semibold flex items-center gap-1">
+                                <span class="material-symbols-outlined">ios_share</span>
+                                <span>Export</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Task Cards Container -->
+                    <div id="tasks-container" role="list" class="flex flex-col gap-3.5"></div>
+                </section>
+            </div>
+
+            <!-- VIEW B: PROFILE, PRO SWITCH & MINIMAL TAGS -->
+            <div id="view-profile" class="hidden flex-col gap-6">
+
+                <!-- Pro Membership Card (Entering any email activates Pro) -->
+                <section aria-labelledby="pro-heading" class="mello-card p-5 rounded-[24px] flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 id="pro-heading" class="text-base font-heading font-semibold">Mello Membership</h2>
+                            <p id="pro-status-sub" class="text-xs text-[var(--text-muted)] mt-0.5">Guest Mode • Free Tier</p>
+                        </div>
+                        <span id="profile-tier-pill" class="text-xs font-semibold px-3 py-1 rounded-full pill-sage">Free</span>
+                    </div>
+
+                    <div id="pro-benefits-box" class="p-3.5 rounded-2xl mello-subtle text-xs text-[var(--text-secondary)] space-y-1">
+                        <p class="font-semibold text-[var(--text-primary)]">Mello Pro includes:</p>
+                        <p>• Unlimited AI Context Subtasks (“+ AI Step”)</p>
+                        <p>• Custom Pastel Tags &amp; Cloud Sync</p>
+                        <p>• Voice-to-Steps Dictation</p>
+                    </div>
+
+                    <div id="profile-auth-controls" class="flex flex-col gap-2.5">
+                        <label for="profile-email-input" class="text-xs font-medium">
+                            Account Email (Any email unlocks Pro)
+                        </label>
+                        <input id="profile-email-input"
+                            type="email"
+                            placeholder="name@domain.com"
+                            class="w-full min-h-[44px] px-3.5 rounded-xl mello-subtle text-sm" />
+                        <button id="profile-auth-btn"
+                            type="button"
+                            class="w-full min-h-[44px] px-4 rounded-xl btn-primary text-xs font-semibold flex items-center justify-center gap-1.5">
+                            <span class="material-symbols-outlined">workspace_premium</span>
+                            <span>Unlock Pro</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Minimal Custom Tags Studio -->
+                <section aria-labelledby="tags-heading" class="mello-card p-5 rounded-[24px] flex flex-col gap-4">
+                    <div>
+                        <h3 id="tags-heading" class="text-base font-heading font-semibold"> Calm Tags</h3>
+                        <p class="text-xs text-[var(--text-muted)] mt-0.5">Soft pastel labels for your steps.</p>
+                    </div>
+
+                    <form id="tag-form" class="flex flex-col gap-2.5" novalidate>
+                        <input id="tag-name-input"
+                            type="text"
+                            maxlength="14"
+                            placeholder="New tag name (e.g. Home)"
+                            class="w-full min-h-[44px] px-3.5 rounded-xl mello-subtle text-sm" />
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <select id="tag-tone-select" aria-label="Tag pastel tone" class="w-full min-h-[44px] px-3 rounded-xl mello-subtle text-xs font-semibold">
+                                <option value="sage">Sage Mist</option>
+                                <option value="blush">Cloud Blush</option>
+                                <option value="mist">Morning Lake</option>
+                            </select>
+                            <button type="submit" class="w-full min-h-[44px] px-3 rounded-xl btn-primary text-xs font-semibold flex items-center justify-center gap-1">
+                                <span class="material-symbols-outlined">add</span>
+                                <span>Add Tag</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="profile-tags-grid" class="grid grid-cols-2 gap-2 pt-1"></div>
+                </section>
+            </div>
+
+        </main>
+
+        <!-- =========================================================
+             BOTTOM NAVIGATION (MINIMAL 2-TAB BAR)
+             ========================================================= -->
+        <nav id="app-nav" role="navigation" aria-label="Main navigation" class="hidden h-20 mello-card border-t border-[var(--border-subtle)] px-6 grid-cols-2 gap-3 items-center sticky bottom-0 z-20">
+            <button id="tab-steps-btn" type="button" aria-current="page" class="w-full min-h-[48px] rounded-2xl pill-sage text-xs font-semibold flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">check_circle</span>
+                <span>Steps</span>
+            </button>
+            <button id="tab-profile-btn" type="button" class="w-full min-h-[48px] rounded-2xl text-[var(--text-secondary)] text-xs font-medium flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">person</span>
+                <span>Profile &amp; Pro</span>
+            </button>
+        </nav>
+
+        <!-- =========================================================
+             MODAL 1: VOICE NOTE PREVIEW
+             ========================================================= -->
+        <div id="voice-modal" role="dialog" aria-modal="true" aria-labelledby="voice-title" class="hidden absolute inset-0 z-40 bg-black/50 backdrop-blur-xs flex items-end justify-center">
+            <div class="w-full mello-card rounded-t-[28px] p-6 flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-semibold px-3 py-1 rounded-full tag-blush">Voice Preview</span>
+                    <button id="voice-close-btn" type="button" class="min-h-[44px] px-3 rounded-full mello-subtle text-xs font-semibold">
+                        <span>Close</span>
+                    </button>
+                </div>
+                <h3 id="voice-title" class="text-base font-heading font-semibold">Speak freely, we’ll fold it.</h3>
+                <p id="voice-sample-quote" class="p-3.5 rounded-2xl mello-subtle text-xs italic text-[var(--text-secondary)] leading-relaxed">
+                    "Sunday morning reset: pick up fresh eucalyptus, fold the warm cotton towels, and send the updated Q3 forecast to Elena."
+                </p>
+                <button id="voice-use-btn" type="button" class="w-full min-h-[48px] px-4 rounded-2xl btn-primary text-xs font-semibold flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                    <span>Fold Voice Sample</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- =========================================================
+             MODAL 2: 3-SECOND EXPORT SHEET
+             ========================================================= -->
+        <div id="export-modal" role="dialog" aria-modal="true" aria-labelledby="export-title" class="hidden absolute inset-0 z-40 bg-black/50 backdrop-blur-xs flex items-end justify-center">
+            <div class="w-full mello-card rounded-t-[28px] p-6 flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                    <h3 id="export-title" class="text-base font-heading font-semibold">Share Steps</h3>
+                    <button id="export-close-btn" type="button" class="min-h-[44px] px-3 rounded-full mello-subtle text-xs font-semibold">
+                        <span>Close</span>
+                    </button>
+                </div>
+
+                <pre id="export-preview" class="w-full h-28 p-3.5 rounded-2xl mello-subtle text-xs font-mono overflow-y-auto whitespace-pre-wrap"></pre>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <button id="exp-wa-btn" type="button" class="w-full min-h-[44px] px-3 rounded-xl btn-primary text-xs font-semibold flex items-center justify-center gap-1.5">
+                        <span class="material-symbols-outlined">chat</span>
+                        <span>WhatsApp</span>
+                    </button>
+                    <button id="exp-copy-btn" type="button" class="w-full min-h-[44px] px-3 rounded-xl pill-sage text-xs font-semibold flex items-center justify-center gap-1.5">
+                        <span class="material-symbols-outlined">content_copy</span>
+                        <span>Copy List</span>
+                    </button>
+                    <button id="exp-mail-btn" type="button" class="w-full min-h-[44px] px-3 rounded-xl mello-subtle text-xs font-semibold flex items-center justify-center gap-1.5">
+                        <span class="material-symbols-outlined">mail</span>
+                        <span>Email</span>
+                    </button>
+                    <button id="exp-txt-btn" type="button" class="w-full min-h-[44px] px-3 rounded-xl mello-subtle text-xs font-semibold flex items-center justify-center gap-1.5">
+                        <span class="material-symbols-outlined">download</span>
+                        <span>Save .txt</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Core Mello State ---
+        let isDark = false;
+        let isPro = false;
+        let userEmail = "";
+
+        let tags = [
+            { name: "Calm", tone: "sage" },
+            { name: "Work", tone: "mist" },
+            { name: "Sunday", tone: "blush" }
+        ];
+
+        let tasks = [
+            {
+                t: "Prepare Sunday morning lake basket",
+                s: ["Fold white cotton blanket", "Chill sparkling elderflower water"],
+                tags: ["Sunday"],
+                done: false
+            },
+            {
+                t: "Finalize Mello studio deck",
+                s: ["Review unit economics slide"],
+                tags: ["Work"],
+                done: false
+            }
+        ];
+
+        // Contextual Subtask Suggestions (Used when AI API key isn't injected or for 0ms fallback)
+        const CONTEXT_SUBTASK_BANK = [
+            { match: /lake|picnic|sunday|basket|blanket/i, subs: ["Pack fresh sliced peaches", "Bring linen napkins", "Check morning weather"] },
+            { match: /deck|slide|work|forecast|client|elena/i, subs: ["Export PDF summary", "Send calendar invite", "Double-check key metrics"] },
+            { match: /home|towel|cotton|eucalyptus|clean/i, subs: ["Open windows for fresh air", "Light cotton-scented candle", "Put away laundry"] }
+        ];
+
+        // --- DOM Elements ---
+        const announcer = document.getElementById('aria-announcer');
+        const screenWelcome = document.getElementById('screen-welcome');
+        const appHeader = document.getElementById('app-header');
+        const appMain = document.getElementById('app-main');
+        const appNav = document.getElementById('app-nav');
+
+        const welcomeEmailInput = document.getElementById('welcome-email-input');
+        const welcomeProBtn = document.getElementById('welcome-pro-btn');
+        const welcomeGuestBtn = document.getElementById('welcome-guest-btn');
+        const brandHomeBtn = document.getElementById('brand-home-btn');
+
+        const planBadge = document.getElementById('plan-badge');
+        const profileTierPill = document.getElementById('profile-tier-pill');
+        const proStatusSub = document.getElementById('pro-status-sub');
+        const profileEmailInput = document.getElementById('profile-email-input');
+        const profileAuthBtn = document.getElementById('profile-auth-btn');
+
+        const thoughtInput = document.getElementById('thought-input');
+        const sampleBtn = document.getElementById('sample-btn');
+        const extractBtn = document.getElementById('extract-btn');
+        const clearBtn = document.getElementById('clear-btn');
+        const newTaskBtn = document.getElementById('new-task-btn');
+        const tasksContainer = document.getElementById('tasks-container');
+
+        const toastBanner = document.getElementById('toast-banner');
+        const toastText = document.getElementById('toast-text');
+        const toastClose = document.getElementById('toast-close');
+
+        const tabStepsBtn = document.getElementById('tab-steps-btn');
+        const tabProfileBtn = document.getElementById('tab-profile-btn');
+        const viewWorkspace = document.getElementById('view-workspace');
+        const viewProfile = document.getElementById('view-profile');
+
+        const tagForm = document.getElementById('tag-form');
+        const tagNameInput = document.getElementById('tag-name-input');
+        const tagToneSelect = document.getElementById('tag-tone-select');
+        const profileTagsGrid = document.getElementById('profile-tags-grid');
+
+        const voiceBtn = document.getElementById('voice-btn');
+        const voiceModal = document.getElementById('voice-modal');
+        const voiceCloseBtn = document.getElementById('voice-close-btn');
+        const voiceUseBtn = document.getElementById('voice-use-btn');
+        const voiceSampleQuote = document.getElementById('voice-sample-quote');
+
+        const exportOpenBtn = document.getElementById('export-open-btn');
+        const exportModal = document.getElementById('export-modal');
+        const exportCloseBtn = document.getElementById('export-close-btn');
+        const exportPreview = document.getElementById('export-preview');
+        const expWaBtn = document.getElementById('exp-wa-btn');
+        const expCopyBtn = document.getElementById('exp-copy-btn');
+        const expMailBtn = document.getElementById('exp-mail-btn');
+        const expTxtBtn = document.getElementById('exp-txt-btn');
+
+        function notify(msg) {
+            announcer.textContent = msg;
+            toastText.textContent = msg;
+            toastBanner.classList.remove('hidden');
+        }
+        toastClose.addEventListener('click', () => toastBanner.classList.add('hidden'));
+
+        // --- Theme Toggle (Synchronized Across Welcome & Main Header) ---
+        function toggleTheme() {
+            isDark = !isDark;
+            document.documentElement.classList.toggle('dark', isDark);
+            const icon = isDark ? 'nights_stay' : 'wb_sunny';
+            const label = isDark ? 'Dark' : 'Light';
+
+            ['welcome', 'header'].forEach(prefix => {
+                document.getElementById(`${prefix}-theme-btn`).setAttribute('aria-checked', String(isDark));
+                document.getElementById(`${prefix}-theme-icon`).textContent = icon;
+                document.getElementById(`${prefix}-theme-label`).textContent = label;
+            });
+        }
+        document.getElementById('welcome-theme-btn').addEventListener('click', toggleTheme);
+        document.getElementById('header-theme-btn').addEventListener('click', toggleTheme);
+
+        // --- Pro State Synchronization (Any Email Activates Pro) ---
+        function setProStatus(active, emailStr = "") {
+            isPro = active;
+            userEmail = active ? (emailStr || "pro@mello.app") : "";
+
+            if (isPro) {
+                planBadge.textContent = "Pro ✨";
+                planBadge.className = "text-[11px] font-semibold px-2.5 py-0.5 rounded-full tag-blush";
+                profileTierPill.textContent = "Pro Active ✨";
+                profileTierPill.className = "text-xs font-semibold px-3 py-1 rounded-full tag-blush";
+                proStatusSub.textContent = `${userEmail} • Unlimited AI Steps`;
+                profileEmailInput.value = userEmail;
+                profileEmailInput.classList.add('hidden');
+                profileAuthBtn.innerHTML = `<span class="material-symbols-outlined">logout</span><span>Switch to Free Guest</span>`;
+            } else {
+                planBadge.textContent = "Free";
+                planBadge.className = "text-[11px] font-semibold px-2.5 py-0.5 rounded-full pill-sage";
+                profileTierPill.textContent = "Free";
+                profileTierPill.className = "text-xs font-semibold px-3 py-1 rounded-full pill-sage";
+                proStatusSub.textContent = "Guest Mode • Free Tier";
+                profileEmailInput.classList.remove('hidden');
+                profileAuthBtn.innerHTML = `<span class="material-symbols-outlined">workspace_premium</span><span>Unlock Pro</span>`;
+            }
+            renderTasks();
+        }
+
+        function enterWorkspace(activatePro, emailVal) {
+            setProStatus(activatePro, emailVal);
+            screenWelcome.classList.add('hidden');
+            appHeader.classList.remove('hidden');
+            appHeader.classList.add('flex');
+            appMain.classList.remove('hidden');
+            appMain.classList.add('flex');
+            appNav.classList.remove('hidden');
+            appNav.classList.add('grid');
+            if (activatePro) {
+                notify(`Welcome to Mello Pro (${userEmail})`);
+            }
+        }
+
+        welcomeProBtn.addEventListener('click', () => {
+            const email = welcomeEmailInput.value.trim() || "clara@mello.app";
+            enterWorkspace(true, email);
+        });
+
+        welcomeGuestBtn.addEventListener('click', () => {
+            enterWorkspace(false, "");
+        });
+
+        brandHomeBtn.addEventListener('click', () => {
+            appHeader.classList.add('hidden');
+            appMain.classList.add('hidden');
+            appNav.classList.add('hidden');
+            screenWelcome.classList.remove('hidden');
+        });
+
+        profileAuthBtn.addEventListener('click', () => {
+            if (!isPro) {
+                const email = profileEmailInput.value.trim() || "clara@mello.app";
+                setProStatus(true, email);
+                notify(`Mello Pro unlocked for ${email}`);
+            } else {
+                setProStatus(false, "");
+                notify("Switched to Free Guest mode.");
+            }
+        });
+
+        // --- Navigation ---
+        function switchView(target) {
+            const isSteps = target === 'steps';
+            viewWorkspace.classList.toggle('hidden', !isSteps);
+            viewWorkspace.classList.toggle('flex', isSteps);
+            viewProfile.classList.toggle('hidden', isSteps);
+            viewProfile.classList.toggle('flex', !isSteps);
+
+            tabStepsBtn.className = isSteps
+                ? "w-full min-h-[48px] rounded-2xl pill-sage text-xs font-semibold flex items-center justify-center gap-2"
+                : "w-full min-h-[48px] rounded-2xl text-[var(--text-secondary)] text-xs font-medium flex items-center justify-center gap-2";
+            tabProfileBtn.className = !isSteps
+                ? "w-full min-h-[48px] rounded-2xl pill-sage text-xs font-semibold flex items-center justify-center gap-2"
+                : "w-full min-h-[48px] rounded-2xl text-[var(--text-secondary)] text-xs font-medium flex items-center justify-center gap-2";
+
+            if (!isSteps) renderProfileTags();
+        }
+        tabStepsBtn.addEventListener('click', () => switchView('steps'));
+        tabProfileBtn.addEventListener('click', () => switchView('profile'));
+
+        // --- AI & Contextual Subtask Generator ---
+        async function generateContextualSubtask(taskObj) {
+            const apiKey = "";
+            const existing = (taskObj.s || []).join(", ");
+            const prompt = `Given the main task "${taskObj.t}" and existing subtasks [${existing}], suggest ONE concise, calm, actionable next subtask (max 6 words). Output ONLY JSON: {"subtask": "..."}`;
+
+            if (apiKey) {
+                try {
+                    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }],
+                            generationConfig: { responseMimeType: "application/json" }
+                        })
+                    });
+                    if (res.ok) {
+                        const data = await res.json();
+                        const parsed = JSON.parse(data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}");
+                        if (parsed.subtask) return parsed.subtask;
+                    }
+                } catch (e) {}
+            }
+
+            // Intelligent Context Fallback based on Task Title & Thought Context
+            const contextSource = `${taskObj.t} ${thoughtInput.value}`;
+            for (const group of CONTEXT_SUBTASK_BANK) {
+                if (group.match.test(contextSource)) {
+                    const unused = group.subs.find(candidate => !taskObj.s.includes(candidate));
+                    if (unused) return unused;
+                }
+            }
+            const generic = [
+                `Prepare essentials for ${taskObj.t.split(' ').slice(0, 3).join(' ').toLowerCase()}`,
+                "Set a calm 15-minute timer to begin",
+                "Review and confirm final details"
+            ];
+            return generic[taskObj.s.length % generic.length];
+        }
+
+        // --- Render Tasks ---
+        function renderTasks() {
+            tasksContainer.innerHTML = '';
+
+            tasks.forEach((task, idx) => {
+                const card = document.createElement('article');
+                card.setAttribute('role', 'listitem');
+                card.className = `mello-card p-4 rounded-[22px] flex flex-col gap-3 transition-opacity ${task.done ? 'opacity-75' : ''}`;
+
+                // Row 1: Checkbox + Editable Task Title + Delete Icon
+                const topRow = document.createElement('div');
+                topRow.className = "flex items-start gap-2";
+
+                const checkBtn = document.createElement('button');
+                checkBtn.type = 'button';
+                checkBtn.setAttribute('role', 'checkbox');
+                checkBtn.setAttribute('aria-checked', String(task.done));
+                checkBtn.setAttribute('aria-label', `Mark "${task.t}" complete`);
+                checkBtn.className = "min-w-[44px] min-h-[44px] -ml-1.5 -mt-1.5 flex items-center justify-center rounded-xl";
+                checkBtn.innerHTML = `
+                    <span class="w-5 h-5 rounded-md border-2 flex items-center justify-center ${
+                        task.done ? 'bg-[var(--primary-fill)] border-[var(--primary-fill)] text-[var(--primary-text)]' : 'border-[var(--border-strong)]'
+                    }">
+                        ${task.done ? '<span class="material-symbols-outlined text-[14px]">check</span>' : ''}
+                    </span>`;
+                checkBtn.addEventListener('click', () => {
+                    tasks[idx].done = !tasks[idx].done;
+                    renderTasks();
+                });
+
+                const titleEl = document.createElement('h3');
+                titleEl.contentEditable = "true";
+                titleEl.className = `text-sm font-heading font-semibold flex-1 pt-1 leading-snug ${task.done ? 'line-through text-[var(--text-muted)]' : ''}`;
+                titleEl.textContent = task.t;
+                titleEl.addEventListener('blur', () => {
+                    tasks[idx].t = titleEl.textContent.trim() || task.t;
+                });
+
+                const delBtn = document.createElement('button');
+                delBtn.type = 'button';
+                delBtn.setAttribute('aria-label', `Delete task ${task.t}`);
+                delBtn.className = "min-w-[44px] min-h-[44px] -mr-1.5 -mt-1.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] flex items-center justify-center rounded-xl";
+                delBtn.innerHTML = `<span class="material-symbols-outlined">close</span>`;
+                delBtn.addEventListener('click', () => {
+                    tasks.splice(idx, 1);
+                    renderTasks();
+                });
+
+                topRow.append(checkBtn, titleEl, delBtn);
+                card.appendChild(topRow);
+
+                // Row 2: Subtasks List
+                if (task.s && task.s.length > 0) {
+                    const subList = document.createElement('div');
+                    subList.className = "pl-4 ml-2.5 border-l border-[var(--border-subtle)] flex flex-col gap-1";
+
+                    task.s.forEach((sub, sIdx) => {
+                        const sRow = document.createElement('div');
+                        sRow.className = "flex items-center justify-between gap-2";
+
+                        const sText = document.createElement('span');
+                        sText.contentEditable = "true";
+                        sText.className = "text-xs text-[var(--text-secondary)] flex-1 py-1";
+                        sText.textContent = sub;
+                        sText.addEventListener('blur', () => {
+                            tasks[idx].s[sIdx] = sText.textContent.trim();
+                        });
+
+                        const sDel = document.createElement('button');
+                        sDel.type = 'button';
+                        sDel.setAttribute('aria-label', `Remove subtask ${sub}`);
+                        sDel.className = "min-w-[44px] min-h-[44px] -my-1.5 -mr-1.5 text-[var(--text-muted)] flex items-center justify-center";
+                        sDel.innerHTML = `<span class="material-symbols-outlined text-[15px]">remove</span>`;
+                        sDel.addEventListener('click', () => {
+                            tasks[idx].s.splice(sIdx, 1);
+                            renderTasks();
+                        });
+
+                        sRow.append(sText, sDel);
+                        subList.appendChild(sRow);
+                    });
+                    card.appendChild(subList);
+                }
+
+                // Row 3: Minimal Tag Pills
+                const tagWrap = document.createElement('div');
+                tagWrap.className = "flex flex-wrap gap-1.5";
+                tags.forEach(tagObj => {
+                    const active = (task.tags || []).includes(tagObj.name);
+                    const tBtn = document.createElement('button');
+                    tBtn.type = 'button';
+                    tBtn.className = `min-h-[44px] px-3 rounded-full text-xs font-medium flex items-center gap-1 ${
+                        active ? `tag-${tagObj.tone} font-semibold` : 'mello-subtle text-[var(--text-muted)]'
+                    }`;
+                    tBtn.innerHTML = `<span>#${tagObj.name}</span>`;
+                    tBtn.addEventListener('click', () => {
+                        if (active) {
+                            tasks[idx].tags = tasks[idx].tags.filter(n => n !== tagObj.name);
+                        } else {
+                            tasks[idx].tags.push(tagObj.name);
+                        }
+                        renderTasks();
+                    });
+                    tagWrap.appendChild(tBtn);
+                });
+                card.appendChild(tagWrap);
+
+                // Row 4: Clean 2-Column Subtask Action Bar ([+ Subtask] and [+ AI Step (Context)])
+                const actionRow = document.createElement('div');
+                actionRow.className = "pt-2 border-t border-[var(--border-subtle)] grid grid-cols-2 gap-2";
+
+                const manualSubBtn = document.createElement('button');
+                manualSubBtn.type = 'button';
+                manualSubBtn.className = "w-full min-h-[44px] px-3 rounded-xl mello-subtle text-xs font-semibold flex items-center justify-center gap-1";
+                manualSubBtn.innerHTML = `<span class="material-symbols-outlined">add</span><span>+ Subtask</span>`;
+                manualSubBtn.addEventListener('click', () => {
+                    tasks[idx].s.push("New step");
+                    renderTasks();
+                });
+
+                const aiSubBtn = document.createElement('button');
+                aiSubBtn.type = 'button';
+                aiSubBtn.className = "w-full min-h-[44px] px-3 rounded-xl btn-blush text-xs font-semibold flex items-center justify-center gap-1";
+                aiSubBtn.innerHTML = `<span class="material-symbols-outlined">auto_awesome</span><span>+ AI Step</span>`;
+                aiSubBtn.addEventListener('click', async () => {
+                    aiSubBtn.disabled = true;
+                    aiSubBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">progress_activity</span><span>Thinking...</span>`;
+                    const suggestion = await generateContextualSubtask(tasks[idx]);
+                    tasks[idx].s.push(suggestion);
+                    renderTasks();
+                    notify(`Added contextual step: "${suggestion}"`);
+                });
+
+                actionRow.append(manualSubBtn, aiSubBtn);
+                card.appendChild(actionRow);
+
+                tasksContainer.appendChild(card);
+            });
+        }
+
+        // --- Thought Extraction ---
+        function parseThoughtLocally(raw) {
+            const parts = raw.split(/(?<=[.!?])\s+|\n+/).map(s => s.trim()).filter(Boolean);
+            return parts.map((p, i) => {
+                const clean = p.replace(/^(also|and)\s+/i, '');
+                const defaultTag = tags[i % Math.max(1, tags.length)]?.name || "Calm";
+                if (clean.includes(':')) {
+                    const [head, tail] = clean.split(':');
+                    const subs = tail.split(/,|and/).map(s => s.trim().replace(/\.$/, '')).filter(Boolean);
+                    return { t: head.trim(), s: subs, tags: [defaultTag], done: false };
+                }
+                return { t: clean.replace(/\.$/, ''), s: [], tags: [defaultTag], done: false };
+            });
+        }
+
+        extractBtn.addEventListener('click', () => {
+            const raw = thoughtInput.value.trim();
+            if (!raw) {
+                thoughtInput.focus();
+                notify("Write a quick thought first, or tap 'Try sample'.");
+                return;
+            }
+            tasks = parseThoughtLocally(raw);
+            renderTasks();
+            notify(`Folded into ${tasks.length} calm steps.`);
+        });
+
+        sampleBtn.addEventListener('click', () => {
+            thoughtInput.value = "Sunday morning by the lake: pack the white cotton blanket, slice fresh peaches, and chill elderflower water. Also prepare Monday studio launch: send final bottle label PDF and confirm timeline.";
+            thoughtInput.focus();
+        });
+
+        clearBtn.addEventListener('click', () => {
+            thoughtInput.value = '';
+            thoughtInput.focus();
+        });
+
+        newTaskBtn.addEventListener('click', () => {
+            tasks.unshift({ t: "New calm step", s: [], tags: [tags[0]?.name || "Calm"], done: false });
+            renderTasks();
+        });
+
+        // --- Profile Tags Management ---
+        function renderProfileTags() {
+            profileTagsGrid.innerHTML = '';
+            tags.forEach((t, i) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `w-full min-h-[44px] px-3 rounded-xl text-xs font-semibold flex items-center justify-between tag-${t.tone}`;
+                btn.innerHTML = `<span>#${t.name}</span><span class="material-symbols-outlined text-[15px]">close</span>`;
+                btn.addEventListener('click', () => {
+                    tags.splice(i, 1);
+                    renderProfileTags();
+                    renderTasks();
+                });
+                profileTagsGrid.appendChild(btn);
+            });
+        }
+
+        tagForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = tagNameInput.value.trim().replace(/^#|\s+/g, '');
+            if (!name) return;
+            tags.push({ name, tone: tagToneSelect.value });
+            tagNameInput.value = '';
+            renderProfileTags();
+            renderTasks();
+            notify(`Added #${name} tag.`);
+        });
+
+        // --- Voice & Export Modals ---
+        voiceBtn.addEventListener('click', () => voiceModal.classList.remove('hidden'));
+        voiceCloseBtn.addEventListener('click', () => voiceModal.classList.add('hidden'));
+        voiceUseBtn.addEventListener('click', () => {
+            thoughtInput.value = voiceSampleQuote.textContent.replace(/^"|"$/g, '').trim();
+            voiceModal.classList.add('hidden');
+            extractBtn.click();
+        });
+
+        function formatExportText() {
+            return ["☁️ *Mello Steps*", "", ...tasks.map(t => {
+                const head = `${t.done ? '✅' : '◯'} *${t.t}* ${t.tags?.length ? `[#${t.tags.join(' #')}]` : ''}`;
+                const subs = (t.s || []).map(s => `  • ${s}`).join('\n');
+                return subs ? `${head}\n${subs}` : head;
+            })].join('\n');
+        }
+
+        exportOpenBtn.addEventListener('click', () => {
+            exportPreview.textContent = formatExportText();
+            exportModal.classList.remove('hidden');
+        });
+        exportCloseBtn.addEventListener('click', () => exportModal.classList.add('hidden'));
+
+        expCopyBtn.addEventListener('click', () => {
+            navigator.clipboard?.writeText(formatExportText());
+            exportModal.classList.add('hidden');
+            notify("Copied steps to clipboard.");
+        });
+        expWaBtn.addEventListener('click', () => {
+            window.open(`https://wa.me/?text=${encodeURIComponent(formatExportText())}`, '_blank');
+        });
+        expMailBtn.addEventListener('click', () => {
+            window.open(`mailto:?subject=Mello%20Steps&body=${encodeURIComponent(formatExportText())}`, '_self');
+        });
+        expTxtBtn.addEventListener('click', () => {
+            const blob = new Blob([formatExportText()], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'mello-steps.txt';
+            a.click();
+            exportModal.classList.add('hidden');
+        });
+
+        // Initial Render
+        renderTasks();
+        renderProfileTags();
+    </script>
+</body>
+</html>

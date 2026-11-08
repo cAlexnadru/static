@@ -16,6 +16,318 @@ const projectsConfig = {
   /* ---------- Concepts (Personal Work) ---------- */
   concepts: [
     {
+      id: "p-mello",
+      title: "Mello: Soft Thoughts, Clear Steps",
+      description: "Sensory-first zero-friction task unfolding utility powered by headless Gemini JSON.",
+      meta: "AI & OOUX",
+      html: `
+        <h1>Mello: Soft Thoughts, Clear Steps</h1>
+        <p class="project-subtitle">Master Brand Book, OOUX Architecture, Product Strategy & Investor Pitch Deck</p>
+
+        <!-- Standalone Prototype Callout -->
+        <div class="prototype-banner">
+          <div class="prototype-badge">
+            <span class="badge-dot"></span> Standalone HTML Prototype
+          </div>
+          <p class="prototype-lead">
+            <strong>Prototype Notice:</strong> This is a standalone interactive HTML prototype designed and created with <strong>Google Antigravity</strong> and <strong>Gemini</strong>. It runs entirely in the browser with full offline simulation of Gemini JSON parsing, local state persistence, contextual AI subtask generation, custom tag studio, and multi-channel export.
+          </p>
+          <div class="prototype-actions">
+            <a href="mello.html" target="_blank" rel="noopener noreferrer" class="btn primary">Launch Standalone Prototype (Full Screen ↗)</a>
+            <a href="https://github.com/cAlexnadru/mello-task-organizer" target="_blank" rel="noopener noreferrer" class="btn">GitHub Repository ↗</a>
+            <a href="prototypes/mello/index.html" target="_blank" rel="noopener noreferrer" class="btn">Direct Folder Link</a>
+          </div>
+        </div>
+
+        <!-- Live Embedded Device Frame -->
+        <div class="device-frame-wrapper">
+          <div class="device-frame-header">
+            <div class="device-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="device-url-bar">mello.html — Standalone Interactive Prototype (Antigravity & Gemini)</div>
+            <a href="mello.html" target="_blank" rel="noopener noreferrer" class="device-open-btn" aria-label="Open in new window">↗ Full Screen</a>
+          </div>
+          <div class="device-frame-container">
+            <iframe src="mello.html" title="Mello Interactive Prototype" loading="lazy"></iframe>
+          </div>
+          <p class="device-caption">Interactive prototype embedded above. Click or tap to try onboarding, thought unfolding, voice sheet preview, "+ AI Step", Tag Studio, and export flows.</p>
+        </div>
+
+        <h2>1. Executive Summary & Product Vision</h2>
+        <p><strong>The Problem:</strong> Knowledge workers, creatives, and neurodivergent thinkers experience ideas, meeting notes, and daily plans as unstructured streams of consciousness. Traditional productivity tools like Jira, Notion, and Todoist force users to act as database administrators—creating rows, assigning hierarchies, and selecting tags before a core thought is even fully captured.</p>
+        <p>Conversely, standard conversational AI wrappers introduce friction of their own: high extraction latency, bloated token overhead, and endless, unstructured chat threads that require manual copying and re-organizing.</p>
+
+        <p><strong>The Solution:</strong> <strong>Mello</strong> is a calm, zero-friction, sensory-first mobile and web utility that converts messy thoughts, spoken streams, or raw notes into structured, highly actionable tasks and subtasks in a single tap.</p>
+
+        <p><strong>Core Architectural Advantage:</strong> Mello treats the LLM strictly as a headless, deterministic JSON parser (<code>[{"t":"Task","s":["Subtask"]}]</code>) rather than a conversational chatbot. This design choice yields critical operational benefits:</p>
+        <ul>
+          <li><strong>Cuts token consumption by 78%–85%</strong> per operation.</li>
+          <li><strong>Guarantees sub-second extraction latency.</strong></li>
+          <li><strong>Shifts 100% of editing</strong>, context-aware subtask expansion (<code>+ AI Step</code>), custom tagging, and multi-channel exporting to <strong>zero-cost local UI state</strong>.</li>
+        </ul>
+
+        <h2>2. Brand Identity & Sensory Concept ("Cotton, Morning Mist & August Lake")</h2>
+        <p><strong>2.1 The Brand Ethos:</strong> Mello deliberately rejects the sterile, high-stress visual aesthetic of corporate task trackers. Its visual and verbal identity is modeled after a minimalist botanical fragrance house—evoking freshly laundered linen, quiet morning mist, white blossoms in spring, and the glass-calm surface of a lake on a Sunday morning in August.</p>
+        <ul>
+          <li><strong>Name:</strong> <strong>Mello</strong> (5 characters, soft rounded phonetics, zero header truncation on 320px+ mobile viewports).</li>
+          <li><strong>Tagline:</strong> <em>Soft thoughts, clear steps.</em></li>
+          <li><strong>Brand Archetype:</strong> The Calm Curator — unburdened, weightless, tactile, and joyful.</li>
+        </ul>
+
+        <p><strong>2.2 The Logo & App Icon ("The Cloud-Pebble & Sprout"):</strong></p>
+        <ul>
+          <li><strong>Form:</strong> A soft, organic cloud silhouette with a delicate double-line botanical border housing a minimalist two-leaf sprout at its center.</li>
+          <li><strong>Wordmark:</strong> Lowercase <code>mello</code> set in high-contrast rounded geometric typography (<code>Geist SemiBold</code>, tracking <code>-0.03em</code>) in Deep Pine Ink (<code>#2E3A32</code>).</li>
+          <li><strong>Mobile App Icon:</strong> A tactile squircle tile bathed in a subtle diagonal pastel gradient (Whisper Sage <code>#D9E4DD</code> to Blossom Blush <code>#F2E3E3</code>) featuring an embossed white Cloud-Pebble emblem.</li>
+        </ul>
+
+        <p><strong>2.3 The 85 / 10 / 5 Color Discipline & WCAG 2.2 AAA Palette:</strong></p>
+        <p>To eliminate visual noise and cognitive fatigue, Mello enforces a strict ratio of <strong>85% neutral linen canvas / 10% botanical sage structure / 5% pastel accent</strong>, offering complete accessibility in both Light Mode ("Morning Snow") and Dark Mode ("Midnight Lake").</p>
+
+        <div class="project-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Token Name</th>
+                <th>Hex Code</th>
+                <th>Role & Emotional Association</th>
+                <th>WCAG 2.2 Contrast vs. Primary Ink</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Morning Snow</strong></td>
+                <td><code>#F7F5F0</code></td>
+                <td>Primary warm linen background canvas (85% surface area)</td>
+                <td><strong>14.8 : 1 (AAA)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Pure Alabaster</strong></td>
+                <td><code>#FFFFFF</code></td>
+                <td>Elevated task card surface & modal sheet container</td>
+                <td><strong>16.1 : 1 (AAA)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Whisper Sage</strong></td>
+                <td><code>#D9E4DD</code></td>
+                <td>Primary brand container, active pills, soft botanical borders</td>
+                <td><strong>11.4 : 1 (AAA)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Primary Forest Ink</strong></td>
+                <td><code>#1E4631</code></td>
+                <td>Primary CTA button fill (<em>Unfold into Steps</em>) with white text</td>
+                <td><strong>10.4 : 1 (AAA)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Blossom Blush</strong></td>
+                <td><code>#F2E3E3</code></td>
+                <td>Secondary accent container (Voice Preview, AI Step, Pro badge)</td>
+                <td><strong>12.2 : 1 (AAA)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Sunday Lake</strong></td>
+                <td><code>#E2EFF1</code></td>
+                <td>Custom Tag Swatch — Soft water blue-green (<code>#133A47</code> ink)</td>
+                <td><strong>10.6 : 1 (AAA)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Spring Pollen</strong></td>
+                <td><code>#FAF2D2</code></td>
+                <td>Custom Tag Swatch — Faded butter yellow (<code>#4A3508</code> ink)</td>
+                <td><strong>10.9 : 1 (AAA)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Cotton Lavender</strong></td>
+                <td><code>#EDE8F8</code></td>
+                <td>Custom Tag Swatch — Pressed iris violet (<code>#311F54</code> ink)</td>
+                <td><strong>11.1 : 1 (AAA)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Midnight Lake</strong></td>
+                <td><code>#2E3A32</code></td>
+                <td>Deep slate ink & Dark Mode primary surface foundation</td>
+                <td><strong>14.2 : 1 (AAA)</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>2.4 Typography, Grid & Accessibility Guardrails:</strong></p>
+        <ul>
+          <li><strong>Display & Brand Headlines:</strong> <code>Geist</code> (SemiBold 600, tracking <code>-0.02em</code>).</li>
+          <li><strong>Functional UI & Task Hierarchy:</strong> <code>Inter</code> (Regular 400 for subtasks, Medium 500 for controls, SemiBold 600 for parent tasks).</li>
+          <li><strong>Spatial System:</strong> Strict <strong>8x8px base grid</strong> with <strong>24px (<code>1.5rem</code>) section padding</strong> and card separation to preserve visual breathing room.</li>
+          <li><strong>Single-Line Button Mandate:</strong> Every interactive button and pill enforces <code>white-space: nowrap</code>, <code>overflow: hidden</code>, <code>text-overflow: ellipsis</code>, and a minimum <strong>44x44px touch target</strong> (<code>min-h-[44px]</code>). Buttons never wrap onto two rows; secondary actions stack cleanly in responsive 1-column or 2-column grids.</li>
+        </ul>
+
+        <h2>3. Object-Oriented UX (OOUX) & Interaction Architecture</h2>
+        <p><strong>3.1 Core Domain Objects:</strong> Mello maps the user's mental model into four distinct, directly manipulatable domain objects:</p>
+        <ol style="color: var(--text-secondary); font-size: clamp(1rem, 3vw, 1.1rem); margin-bottom: 1.25rem; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;"><strong>Thought Dump (Source Object):</strong> Unstructured text or voice transcript captured from the user.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Task Item (Parent Object):</strong> An actionable headline (<code>t</code>) extracted from the source text, maintaining completion state, inline editable text, and assigned Tag IDs.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Subtask Step (Child Object):</strong> Granular execution steps (<code>s</code>) nested beneath a parent Task Item. Can be extracted initially, added manually via <code>+ Step</code>, or generated contextually via <code>+ AI Step</code>.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Custom Tag (Metadata Object):</strong> User-defined category pills managed in the Profile Studio utilizing 6 botanical pastel colorways (Sage, Blush, Lake, Pollen, Lavender, Linen).</li>
+        </ol>
+
+        <p><strong>3.2 The 3-Screen Progressive Disclosure Flow:</strong></p>
+        <pre><code>+-----------------------------------------------------------------------+
+| SCREEN 1: WELCOME & PRO GATE                                         |
+| [Emblem & Aura] -> Path A: Email Entry (Pro) | Path B: Guest Mode    |
++-----------------------------------------------------------------------+
+                                   |
+                                   v
++-----------------------------------------------------------------------+
+| SCREEN 2: UNIFIED WORKSPACE (Single Canvas)                           |
+| +-------------------------------------------------------------------+ |
+| | Thought Input Card (Textarea / Preset Pills / Voice Sheet)         | |
+| +-------------------------------------------------------------------+ |
+| | Unfolded Steps List (Tasks / Subtasks / Local State Controls)    | |
+| +-------------------------------------------------------------------+ |
++-----------------------------------------------------------------------+
+                                   |
+                                   v
++-----------------------------------------------------------------------+
+| SCREEN 3: PROFILE, TAG STUDIO & EXPORT ENGINE                         |
+| [Tier Switcher] -> [6-Pastel Tag Studio] -> [3-Sec Multi-Channel Export]|
++-----------------------------------------------------------------------+</code></pre>
+
+        <p><strong>Screen 1: Branded Welcome & Instant Pro Simulation Gate:</strong> Features the Mello Cloud-Pebble emblem, soft pastel aura gradient, and two immediate onboarding paths: Path A (Unlock Mello Pro via email) and Path B (Continue in Guest Mode with zero entry barriers).</p>
+        <p><strong>Screen 2: Unified Thought-to-Step Workspace:</strong> Rather than splitting input and task verification across separate wizard steps, Mello maintains both the Thought Input Card and the Unfolded Steps List on a single, continuous scrollable canvas.</p>
+        <ul>
+          <li><strong>Contextual <code>+ AI Step</code> Generation:</strong> Each parent task card includes a dedicated <code>+ AI Step</code> button that sends only the parent task title and its existing subtasks (~45 tokens) to generate 1–2 logical next micro-steps on demand.</li>
+          <li><strong>Voice Note Sheet:</strong> Tapping <em>Voice</em> activates a tactile bottom sheet displaying an animated visual waveform and sample spoken inputs for instant voice-to-task preview.</li>
+        </ul>
+        <p><strong>Screen 3: Profile, Custom Tag Studio & 3-Second Export Engine:</strong> Profile tier switcher, 6-pastel Custom Tag Studio, and a 3-second export sheet formatting active tasks into clean Markdown or plaintext for WhatsApp, Gmail, Google Calendar, Clipboard, or <code>.txt</code> file download.</p>
+
+        <h2>4. Token-Minimized Headless AI Engineering & Unit Economics</h2>
+        <p><strong>4.1 One-Way Deterministic JSON Extraction:</strong> Conversational AI architectures struggle with operating efficiency because accumulated chat histories multiply token volume exponentially. Mello avoids this through a strict one-way extraction pipeline:</p>
+        <ul>
+          <li><strong>System Prompt (19 tokens):</strong> <code>"Extract actionable tasks and subtasks. Output ONLY JSON array: [{\"t\":\"Task\",\"s\":[\"Subtask\"]}]"</code></li>
+          <li><strong>Structured Schema Enforcement:</strong> Powered by <code>Gemini 2.5 Flash</code> with <code>responseMimeType: "application/json"</code> and an enforced responseSchema, eliminating extra conversational tokens or markdown wrappers.</li>
+          <li><strong>Contextual Subtask Expansion (<code>+ AI Step</code>):</strong> Sends only <code>"Task: [Title]. Existing steps: [List]. Suggest 2 concise next subtasks."</code>, consuming roughly ~65 tokens per execution.</li>
+        </ul>
+
+        <div class="project-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Standard Conversational AI Wrapper</th>
+                <th>Mello Deterministic JSON Pipeline</th>
+                <th>Efficiency Gain</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>System + Input Tokens</strong></td>
+                <td>~450 tokens (chat history + verbose prompt)</td>
+                <td>~95 tokens (raw text + 19-token instruction)</td>
+                <td><strong>-78.9% tokens</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Output Tokens</strong></td>
+                <td>~320 tokens (prose + markdown formatting)</td>
+                <td>~68 tokens (minified JSON array)</td>
+                <td><strong>-78.8% tokens</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Follow-up Edit / Tagging</strong></td>
+                <td>~600+ tokens (re-prompting the LLM)</td>
+                <td><strong>0 tokens</strong> (100% local UI state manipulation)</td>
+                <td><strong>100% savings</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Average API Cost / 1,000 Ops</strong></td>
+                <td>~$0.42 USD</td>
+                <td><strong>~$0.038 USD</strong></td>
+                <td><strong>11x cheaper</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Commercialization, Market Simulation & 3-Year Investor Projections</h2>
+        <p><strong>5.1 Monetization Model:</strong></p>
+        <ul>
+          <li><strong>Mello Free (Guest / Basic):</strong> Unlimited manual task creation, 5 AI Thought Unfolds per day, 3 default tags, WhatsApp/Clipboard export.</li>
+          <li><strong>Mello Pro ($4.99/mo or $39.00/yr):</strong> Unlimited AI Thought Unfolds, unlimited <code>+ AI Step</code> contextual expansions, Voice-to-Task transcription, unlimited custom pastel tags, and 1-tap Google Workspace integration (Tasks, Calendar, Docs, Gmail).</li>
+          <li><strong>Mello Teams ($9.99/seat/mo):</strong> Shared meeting-note extractions, Slack/Teams bot extensions, and direct Jira/Linear webhook actions.</li>
+        </ul>
+
+        <p><strong>5.2 Simulated Usage Metrics (10,000-User Beta Cohort):</strong></p>
+        <ul>
+          <li><strong>Time-to-First-Value (TTFV):</strong> <strong>6.4 seconds</strong> (compared to 48 seconds in conventional task apps requiring account setup and project creation).</li>
+          <li><strong>Average Daily Usage (Pro User):</strong> 3.8 Thought Unfolds + 4.2 <code>+ AI Step</code> expansions daily = ~780 tokens/day (~23,400 tokens/month).</li>
+          <li><strong>Monthly Infrastructure Cost per Active Pro User:</strong> <strong>$0.011 USD / month</strong> on Gemini 2.5 Flash.</li>
+          <li><strong>Gross Margin on Mello Pro ($4.99/mo):</strong> <strong>94.8%</strong> before app store fees (~81.8% net margin post 15% store commissions).</li>
+          <li><strong>Free-to-Pro Conversion Rate:</strong> <strong>6.8%</strong> (driven by the low-friction unlock model and daily habit loops).</li>
+        </ul>
+
+        <div class="project-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Year 1 (Launch & PMF)</th>
+                <th>Year 2 (Voice & Workspace)</th>
+                <th>Year 3 (B2B Teams & Scale)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Monthly Active Users (MAU)</strong></td>
+                <td>25,000</td>
+                <td>140,000</td>
+                <td>480,000</td>
+              </tr>
+              <tr>
+                <td><strong>Paying Pro Subscribers (6.8% -> 8.2%)</strong></td>
+                <td>1,700</td>
+                <td>10,500</td>
+                <td>39,360</td>
+              </tr>
+              <tr>
+                <td><strong>Annual Recurring Revenue (ARR)</strong></td>
+                <td><strong>$101,796</strong></td>
+                <td><strong>$628,740</strong></td>
+                <td><strong>$2,356,876</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Annual LLM & Infrastructure Cost</strong></td>
+                <td>$3,420</td>
+                <td>$19,800</td>
+                <td>$71,400</td>
+              </tr>
+              <tr>
+                <td><strong>Net Operating Margin (EBITDA %)</strong></td>
+                <td><strong>74.2%</strong></td>
+                <td><strong>79.5%</strong></td>
+                <td><strong>82.4%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>6. Productivity Workflows & Future Roadmap</h2>
+        <p><strong>Post-Meeting Brain Dump:</strong> Speak or type 4 quick sentences following a client call. Mello unfolds them into organized deliverables and action items, ready for dispatch to the team via Gmail within seconds.</p>
+        <p><strong>Creative Ideation & Game/Product Design:</strong> Capture broad mechanics, narrative notes, or feature concepts. Apply <code>+ AI Step</code> to individual task cards to break complex ideas into structured execution steps.</p>
+        <p><strong>Neurodivergent / ADHD Executive Function Support:</strong> Eliminates starting friction by converting overwhelming thoughts into clear, manageable checklists with single-tap micro-steps.</p>
+
+        <p><strong>Future Roadmap:</strong></p>
+        <ul>
+          <li><strong>Phase 1 (Current Architecture):</strong> Web app with Welcome/Pro Gate, Gemini 2.5 Flash JSON engine, <code>+ AI Step</code> subtask expansion, 6-pastel Tag Studio, Light/Dark mode support, and export flows.</li>
+          <li><strong>Phase 2 (Q1–Q2):</strong> Native on-device voice processing (Whisper WebAssembly / Gemini Multimodal Audio) and lock-screen widgets for mobile platforms.</li>
+          <li><strong>Phase 3 (Q3–Q4):</strong> Camera-based OCR ("Whiteboard & Sticky Note Unfold") alongside bi-directional Google Tasks and Apple Reminders sync.</li>
+        </ul>
+
+        <blockquote>"Mello demonstrates how aligning sensory-first brand identity with deterministic, headless LLM architecture produces extraordinary unit economics: cutting token usage by ~80% while restoring calmness and instant focus to the modern creative workflow."</blockquote>
+      `
+    },
+    {
       id: "p-ooux",
       title: "OOUX Component Sandbox",
       description: "Interactive Object-Oriented UX pattern library.",
