@@ -16,6 +16,246 @@ const projectsConfig = {
   /* ---------- Concepts (Personal Work) ---------- */
   concepts: [
     {
+      id: "p-veloce",
+      title: "Veloce // Rail: OOUX & Transit Architecture",
+      description: "Re-architecting national rail ticketing & live station telemetry via OOUX, Material 3 Expressive, and WCAG 2.2 AAA.",
+      meta: "Transit & OOUX",
+      html: `
+        <h1>Veloce // Rail: OOUX & Transit Architecture</h1>
+        <p class="project-subtitle">National Rail Ticketing & Live Station Telemetry Redesign · Trenitalia Case Study</p>
+
+        <!-- Standalone Prototype Callout -->
+        <div class="prototype-banner">
+          <div class="prototype-badge">
+            <span class="badge-dot"></span> Interactive OOUX Prototype & Live Case Study
+          </div>
+          <p class="prototype-lead">
+            <strong>Project Overview:</strong> A complete Object-Oriented UX (OOUX), Material Design 3 Expressive, and <strong>WCAG 2.2 AAA / EN 301 549</strong> compliant mobile & desktop rail ticketing system designed to eliminate hostile linear railway database silos. Built with Vite, React 18, Tailwind CSS, and standalone HTML embeds.
+          </p>
+          <div class="prototype-actions">
+            <a href="demos/veloce-rail/index.html" target="_blank" rel="noopener noreferrer" class="btn primary">Launch Fullscreen App Demo (Vite + React) ↗</a>
+            <a href="veloce.html" target="_blank" rel="noopener noreferrer" class="btn">Standalone Card Embed ↗</a>
+            <a href="https://github.com/cAlexnadru/veloce-rail-ooux" target="_blank" rel="noopener noreferrer" class="btn">GitHub Repository ↗</a>
+            <a href="https://docs.google.com/document/d/1zOR19xR4WKmk8rKsT_dh0wvG9a-up2bDLVY9ClBnMP4/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="btn">Master Spec (Google Doc) ↗</a>
+          </div>
+        </div>
+
+        <!-- Live Embedded Interactive Device Frame -->
+        <div class="device-frame-wrapper">
+          <div class="device-frame-header">
+            <div class="device-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="device-url-bar">veloce.html — Interactive Live Component (OOUX + M3 Expressive)</div>
+            <a href="demos/veloce-rail/index.html" target="_blank" rel="noopener noreferrer" class="device-open-btn" aria-label="Open full demo in new window">↗ Fullscreen App</a>
+          </div>
+          <div class="device-frame-container" style="height: 620px;">
+            <iframe src="veloce.html" title="Veloce // Rail Interactive Live Component" loading="lazy"></iframe>
+          </div>
+          <p class="device-caption">Interactive component running live above. Try toggling Track Switch (11→14), Tunnel 0G Mode, Flip 180° Reversal, Seat 11B auto-increment, and Digital Check-In.</p>
+        </div>
+
+        <h2>The Origin Story: August in Rome Does Not Forgive Bad Software</h2>
+        <blockquote style="border-left: 4px solid var(--focus-ring); padding-left: 1.5rem; margin: 1.5rem 0; font-style: normal; color: var(--text-main);">
+          <p><em>"I was standing inside the cavernous concrete oven of Roma Termini, the August heat radiating off the travertine floor while a subtle knot of high-stakes logistics tightened in my chest. Cristina and I were heading south toward the coast and the ferry to Procida—a trip where I had an engagement ring tucked safely away and zero desire to miss our connection. All I needed from the Trenitalia app was two tickets, two adjacent seats, and a confirmed track number.</em></p>
+          <p><em>Instead, I got a masterclass in hostile systems architecture."</em></p>
+        </blockquote>
+
+        <p>First came the glare test. Under the blinding Roman sun cutting through the terminal glass, Trenitalia’s low-contrast <code>#C8102E</code> brand red and pale gray labels dissolved into an unreadable smear. When I stepped into the shade and switched apps for ninety seconds to double-check our ferry window and message Cristina, the app punished me with its infamous 15-minute session purge—wiping our selected trains, passenger details, and fare tiers back to a blank screen.</p>
+        <p>On attempt two, tapping the seat map before locking the second passenger counter on Screen 1 triggered a silent, unlabelled UI lock that refused to select a second seat without explaining why. When we finally reached checkout, the payment gateway choked and spat out a raw localization string—<code>label_payment_failed_title</code>—like a developer's debug console mocking us while the departure clock ticked down.</p>
+        <p>Even after the tickets went through, the anxiety didn't stop. Our itinerary mixed a high-speed <em>Frecciarossa</em> leg with a connecting <em>Regionale</em> segment. In Trenitalia’s database, those are two completely different legal universes; in the app, they were homogenized into a single confusing feed that buried the mandatory regional <strong>Digital Check-In</strong> button (<em>Convalida Digitale</em>) behind nested menus. And as we sprinted across the concourse, the overhead station <em>Tabellone</em> flipped our departure from Track 11 to Track 14 three full minutes before the app’s batch API caught up.</p>
+        <p>Sitting on that train as it finally pulled out of Rome—and later, after Cristina said <em>yes</em> on the pastel-colored shores of Procida—my UX designer brain couldn't let that Termini meltdown go. Trenitalia hadn't built an app for travelers; they had built a glass window over their legacy PICO and RFI databases, forcing human beings with luggage and racing heartbeats to act as human compilers.</p>
+        <p><strong>That August afternoon in Rome is why Veloce // Rail exists.</strong></p>
+
+        <h2>1. UX Research & Object Discovery: The 4 Critical Failure Points</h2>
+        <p>Through heuristic audits and passenger interviews across Italian transit corridors, four structural failure points emerged in legacy rail platforms:</p>
+        <ul>
+          <li><strong>1. Multilingual Search Failures:</strong> International travelers typing English city exonyms (<em>"Florence"</em>, <em>"Venice"</em>) received <code>null</code> search results because search inputs queried raw Italian RFI database strings (<em>Firenze</em>, <em>Venezia</em>).</li>
+          <li><strong>2. Rigid Linear Wizards & Silent Precondition Blocks:</strong> Failing to pre-configure exact passenger counts on Screen 1 silently blocked seat selection on Screen 3 without inline feedback, while a destructive 15-minute session timeout purged the entire shopping cart whenever a user switched apps to coordinate.</li>
+          <li><strong>3. Homogenized Multi-Carrier Rules & Physical Blind Spots:</strong> Journeys combining a high-speed <em>Frecciarossa</em> leg with a <em>Regionale</em> feeder leg obscured mandatory regional digital check-in rules, failed to warn passengers when trains reversed physical direction (180°) at dead-end terminals like Florence Central (<code>FI_SMN</code>), and stranded commuters in rural mountain tunnels without cellular connectivity.</li>
+          <li><strong>4. Accessibility & Regulatory Liability:</strong> Portrait-only orientation locks (violating EN 301 549 Clause 11.1.3.4), color-only seat maps (Clause 11.1.4.1), low-contrast brand reds (<code>#C8102E</code>), and unlabelled form fields failed European Accessibility Act mandates.</li>
+        </ul>
+
+        <h2>2. Object-Oriented UX (OOUX) Architecture: The 9 Core Domain Objects</h2>
+        <p>Rather than designing screen-by-screen flows that trap users in rigid paths, Veloce // Rail models the entire rail experience around 9 inspectable, directly manipulatable domain objects:</p>
+
+        <ol style="color: var(--text-secondary); font-size: clamp(1rem, 3vw, 1.1rem); margin-bottom: 1.25rem; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.6rem;"><strong>Journey (Macro Itinerary):</strong> Origin to final destination, total duration, transfer count, CO2 saved, and live status (<code>ON_SCHEDULE</code>, <code>DELAYED</code>, <code>TIGHT_CONNECTION</code>). Direct actions: live pin, share deep link, free alternate train swap.</li>
+          <li style="margin-bottom: 0.6rem;"><strong>Leg (Continuous Transit Segment):</strong> Uninterrupted ride aboard one rolling-stock unit (<code>FR 9614</code>). Telemetry progress, intermediate stops, and scheduled vs. actual platform.</li>
+          <li style="margin-bottom: 0.6rem;"><strong>Station (Physical Rail Interchange):</strong> Canonical name (<em>Firenze S.M.N.</em>), exonym aliases (<em>"Florence"</em>, <em>"Florenz"</em>), live Departure/Arrival boards, and Sala Blu accessibility assistance.</li>
+          <li style="margin-bottom: 0.6rem;"><strong>Ticket & Fare Contract:</strong> PNR (<code>M84K2P</code>), encrypted UIC 918.3 Aztec QR code, tariff tier (<em>Base Flex</em>, <em>Saver</em>, <em>Super Saver</em>), service level (<em>Standard</em>, <em>Premium</em>, <em>Quiet Zone</em>, <em>Executive</em>), and instant Apple/Google Wallet export.</li>
+          <li style="margin-bottom: 0.6rem;"><strong>Digital Check-In:</strong> Regional ticket activation state machine (<code>PENDING</code>, <code>AVAILABLE</code>, <code>COMPLETED</code>, <code>OFFLINE_SIGNED</code>) with rotating cryptographic anti-screenshot token and offline tunnel clock verification.</li>
+          <li style="margin-bottom: 0.6rem;"><strong>Seat & Coach:</strong> Coach number, European seat number (<code>11A</code>), leg-relative orientation (forward/backward/table), window alignment, and hardware flags (230V AC, USB-C, wheelchair).</li>
+          <li style="margin-bottom: 0.6rem;"><strong>Passenger Profile & Loyalty:</strong> Guest vs. Member identity, 10-second Passkey onboarding, saved companions, tokenized Apple/Google Pay, and loyalty points.</li>
+          <li style="margin-bottom: 0.6rem;"><strong>Ancillary Add-On:</strong> Bike space, pet pass, extra luggage, and seat meals with automatic rolling-stock compatibility checks.</li>
+          <li style="margin-bottom: 0.6rem;"><strong>Disruption & Compensation Claim:</strong> Automated EU Regulation 2021/782 delay tracking (25% at 60–119 min; 50% at ≥120 min) with 1-tap payout (Voucher +10%, Card Refund, Loyalty Points).</li>
+        </ol>
+
+        <p><strong>Edge-Case Objects Surfaced:</strong></p>
+        <ul>
+          <li><strong>Transfer Node:</strong> Explicit intermediate wait time, walking distance, elevator access, and Minimum Connect Time safety score (flagging &lt; 8 min as tight).</li>
+          <li><strong>Dynamic Track Object:</strong> Decouples scheduled track from confirmed track (<code>11 → TRACK 14 · Confirmed 10:48</code>) with 3D flip animation.</li>
+          <li><strong>Terminal Reversal Node:</strong> Automatically flips seat orientation 180° at dead-end stations (Florence S.M.N. and Rome Termini).</li>
+          <li><strong>Offline Cryptographic Check-In:</strong> Locally signed hardware-clock verification token (<code>⚡ Offline Verified</code>) for tunnel rides without 4G/5G.</li>
+        </ul>
+
+        <h2>3. Dual-Mode WCAG 2.2 AAA Color Token Matrix</h2>
+        <p>Engineered specifically for outdoor readability in blinding Mediterranean sunlight as well as night glare:</p>
+
+        <div class="project-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Semantic Role</th>
+                <th>Light Mode Token</th>
+                <th>Light Contrast</th>
+                <th>Dark Mode Token</th>
+                <th>Dark Contrast</th>
+                <th>Non-Color Redundancy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Primary Brand / CTA</strong></td>
+                <td><code>#446300</code> (Text <code>#FFFFFF</code>)</td>
+                <td><strong>7.1:1 (AAA)</strong></td>
+                <td><code>#BFFF00</code> (Text <code>#0A0C10</code>)</td>
+                <td><strong>15.8:1 (AAA)</strong></td>
+                <td>High-salience pill shape + action verb</td>
+              </tr>
+              <tr>
+                <td><strong>App Canvas</strong></td>
+                <td><code>#FFFFFF</code> / <code>#E6ECE0</code></td>
+                <td>Base</td>
+                <td><code>#0B0C0E</code> / <code>#07080A</code></td>
+                <td>Base</td>
+                <td>Clean contrast separation</td>
+              </tr>
+              <tr>
+                <td><strong>Elevated Card Surface</strong></td>
+                <td><code>#F4F6F0</code></td>
+                <td>Tonal tint</td>
+                <td><code>#1A1D24</code></td>
+                <td>Lifted slate</td>
+                <td>1px structural border</td>
+              </tr>
+              <tr>
+                <td><strong>Primary Text</strong></td>
+                <td><code>#0A0C10</code></td>
+                <td><strong>19.8:1 (AAA)</strong></td>
+                <td><code>#F4F6F0</code></td>
+                <td><strong>17.1:1 (AAA)</strong></td>
+                <td>Dynamic bolding on times & nouns</td>
+              </tr>
+              <tr>
+                <td><strong>Secondary Text</strong></td>
+                <td><code>#434950</code></td>
+                <td><strong>7.5:1 (AAA)</strong></td>
+                <td><code>#BEC5CE</code></td>
+                <td><strong>7.4:1 (AAA)</strong></td>
+                <td>Top-aligned persistent labels</td>
+              </tr>
+              <tr>
+                <td><strong>Validated / Live</strong></td>
+                <td><code>#035E43</code> (<code>#BCECE0</code> bg)</td>
+                <td><strong>7.3:1 (AAA)</strong></td>
+                <td><code>#4ADE80</code> (<code>#003825</code> bg)</td>
+                <td><strong>10.8:1 (AAA)</strong></td>
+                <td>Shield-Check icon (✔) + security wave</td>
+              </tr>
+              <tr>
+                <td><strong>Warning / Track Switch</strong></td>
+                <td><code>#8A4B00</code> (<code>#FFDEA8</code> bg)</td>
+                <td><strong>7.0:1 (AAA)</strong></td>
+                <td><code>#FFCC4D</code> (<code>#422400</code> bg)</td>
+                <td><strong>11.2:1 (AAA)</strong></td>
+                <td>Warning Triangle (▲) + 2px dashed border</td>
+              </tr>
+              <tr>
+                <td><strong>Critical / Disruption</strong></td>
+                <td><code>#9E0B22</code> (<code>#FFDAD9</code> bg)</td>
+                <td><strong>7.6:1 (AAA)</strong></td>
+                <td><code>#FF808B</code> (<code>#5C000E</code> bg)</td>
+                <td><strong>7.8:1 (AAA)</strong></td>
+                <td>Octagon Stop (■) + 2px solid border</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. 6-Slide Executive Deck Blueprint</h2>
+        <div class="project-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Slide</th>
+                <th>Headline</th>
+                <th>Core Narrative & Proof Point</th>
+                <th>Visual Delivery</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Slide 1</strong></td>
+                <td>The Legacy Rail Tax: Why Travelers Abandon Checkout</td>
+                <td>Contrast database-driven wizards (null English searches, 15-min cart purges, raw exception keys) against traveler mental models.</td>
+                <td>Split comparison: Legacy error screen vs. Veloce // Rail OOUX object hierarchy.</td>
+              </tr>
+              <tr>
+                <td><strong>Slide 2</strong></td>
+                <td>OOUX Architecture: Built Around Real-World Objects</td>
+                <td>Show how the 9 core domain objects connect Discovery Mode and Live Transit HUD Mode without linear dead-ends.</td>
+                <td>System blueprint card: 3-tier progressive disclosure anatomy on 8x8px grid.</td>
+              </tr>
+              <tr>
+                <td><strong>Slide 3</strong></td>
+                <td>Zero-Friction Discovery & Direct Seat Manipulation</td>
+                <td>Showcase English exonym resolution, 2x2 Bento Fare & Service Class matrix, 180° reversal alerts, and inline passenger auto-incrementing.</td>
+                <td>Bento Fare/Class Drawer + Interactive SVG Coach Map.</td>
+              </tr>
+              <tr>
+                <td><strong>Slide 4</strong></td>
+                <td>Built for the Platform: Live IoT HUD & Tunnel Resilience</td>
+                <td>Highlight full FROM/TO station clarity, kinetic track switch alerts (11 → 14), BLE Beacon auto-check-in, and 100%-brightness Aztec QR sheet.</td>
+                <td>Live Travel HUD + 100%-Brightness Aztec QR Sheet.</td>
+              </tr>
+              <tr>
+                <td><strong>Slide 5</strong></td>
+                <td>Turning Disruptions into Trust: 1-Tap EU Claims & Swaps</td>
+                <td>Demonstrate live dispatch detection of missed connections and ≥ 60m delays triggering 1-tap free train swaps and 25%–50% EU refunds.</td>
+                <td>Landscape 12-Column Split View: EN 301 549 orientation reflow with Disruption Banner.</td>
+              </tr>
+              <tr>
+                <td><strong>Slide 6</strong></td>
+                <td>Business & Accessibility ROI: WCAG 2.2 AAA by Default</td>
+                <td>Quantify funnel lift (8 steps to 2, zero cart purges, Guest-to-Member Passkey onboarding) and 7.1:1+ AAA legal compliance.</td>
+                <td>Metrics Bento Grid: Pairing Light and Dark tokens with Member Benefits card.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Quantifiable Impact & Literature Validation</h2>
+        <ul>
+          <li><strong>Configuration Steps Reduced from 8 to 2:</strong> Inline progressive disclosure and direct seat-to-passenger auto-incrementing eliminated multi-screen backtracking and cut booking task time to under 15 seconds.</li>
+          <li><strong>Zero Cart Purges & Resilient Tunnel Check-In:</strong> Decoupled local cart persistence from the 10-minute seat hold timer, completely removing the 15-minute session wipeout, while optimistic offline cryptographic check-in eliminated rural connectivity fines.</li>
+          <li><strong>100% WCAG 2.2 AAA & EN 301 549 Compliance:</strong> Achieved 7.1:1 (Light) and 15.8:1 (Dark) primary contrast ratios, full Portrait and 12-Column Landscape Split-View orientation support, 48x48px+ touch targets, and complete non-color redundancy across every seat and alert state.</li>
+        </ul>
+
+        <blockquote>
+          "A task model must identify how a system needs to behave to match user expectations... because things happen when a user wants them to and the information they are after can be found."<br>
+          <small>— Richard Caddick & Steve Cable, <em>Communicating the User Experience</em></small>
+        </blockquote>
+
+        <blockquote>
+          "Ensure that users never lose their work as a result of an error on their part [or] hardware, software, or communication problems... State the problem, its probable cause, and what the user can do about it."<br>
+          <small>— Wilbert O. Galitz, <em>The Essential Guide to User Interface Design</em></small>
+        </blockquote>
+      `
+    },
+    {
       id: "p-mello",
       title: "Mello: Soft Thoughts, Clear Steps",
       description: "Sensory-first zero-friction task unfolding utility powered by headless Gemini JSON.",
